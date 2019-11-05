@@ -1,0 +1,40 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+
+
+group = 'com.srini.learning'
+version = '1.0.0'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+repositories {
+   jcenter()
+}
+
+dependencies {
+   compile 'org.slf4j:slf4j-api:1.7.12'
+   implementation 'io.reactivex.rxjava3:rxjava:3.0.0-RC4'
+   implementation 'org.apache.commons:commons-lang3:3.9'
+   testCompile 'junit:junit:4.12'
+   compileOnly 'org.projectlombok:lombok:1.18.10'
+   annotationProcessor 'org.projectlombok:lombok:1.18.10'
+
+}
+sourceSets {
+   main {
+      java {
+         srcDir 'src'
+      }
+   }
+	
+   test {
+      java {
+         srcDir 'test'
+      }
+   }
+}
